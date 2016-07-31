@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TabBarView.h"
 
 @interface TabBarViewController : UITabBarController
+@property (nonatomic,strong) TabBarView *coustomTabBar;
 
 @end

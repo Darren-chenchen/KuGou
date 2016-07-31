@@ -5,7 +5,7 @@
 //  Created by Darren on 16/7/30.
 //  Copyright © 2016年 darren. All rights reserved.
 //
-#define ItemImagewidth 30.0f
+#define ItemImagewidth 20.0f
 #define ItemButtonwidth 50.0f
 #import "BaseViewController.h"
 
@@ -56,7 +56,7 @@
         UITapGestureRecognizer *backTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backItemTouched:)];
         [_backItem addGestureRecognizer:backTap];
         [_navBar addSubview:_backItem];
-        _backItem.frame = CGRectMake(5, 28, ItemImagewidth, ItemImagewidth);
+        _backItem.frame = CGRectMake(5, 30, ItemImagewidth, ItemImagewidth);
     }
     
     return _backItem;

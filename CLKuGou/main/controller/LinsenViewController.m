@@ -11,6 +11,7 @@
 #import "LinsenViewController.h"
 #import "mainCell.h"
 #import "mainHeaderView.h"
+#import "LocalMusicViewController.h"
 
 @interface LinsenViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -35,7 +36,6 @@
     }
     return _headerView;
 }
-
 #pragma mark - 创建tableView
 - (void)setupTableView
 {
@@ -54,6 +54,13 @@
     UIView *viewtab = [[UIView alloc] initWithFrame:CGRectMake(0, headerH+44*self.titlesArr.count, APPW, 500)];
     viewtab.backgroundColor = [UIColor whiteColor];
     [tableView addSubview:viewtab];
+    
+    // 访问系统本地音乐
+    WS(weakSelf);
+    self.headerView.localMusic = ^{
+        LocalMusicViewController *localVC = [[LocalMusicViewController alloc] init];
+        [weakSelf.navigationController pushViewController:localVC animated:YES];
+    };
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -81,9 +88,5 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 44;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0;
 }
 @end

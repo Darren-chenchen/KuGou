@@ -35,6 +35,12 @@
 		95A9DF421D4C9D3C00A80F8A /* nav_ocean.png in Resources */ = {isa = PBXBuildFile; fileRef = 95A9DF401D4C9D3C00A80F8A /* nav_ocean.png */; };
 		95A9DF441D4CB47400A80F8A /* bj.png in Resources */ = {isa = PBXBuildFile; fileRef = 95A9DF431D4CB47400A80F8A /* bj.png */; };
 		95A9DF461D4CB90300A80F8A /* bj2.png in Resources */ = {isa = PBXBuildFile; fileRef = 95A9DF451D4CB90300A80F8A /* bj2.png */; };
+		95A9DF481D4CBDAE00A80F8A /* set_bj1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95A9DF471D4CBDAE00A80F8A /* set_bj1.jpg */; };
+		95A9DF4F1D4DA6B200A80F8A /* LocalMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A9DF4E1D4DA6B100A80F8A /* LocalMusicViewController.m */; };
+		95A9DF581D4DB38B00A80F8A /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A9DF571D4DB38B00A80F8A /* NSMutableArray+Safe.m */; };
+		95CED18B1D4E079400EBF530 /* LocalMusicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CED1891D4E079400EBF530 /* LocalMusicCell.m */; };
+		95CED18C1D4E079400EBF530 /* LocalMusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95CED18A1D4E079400EBF530 /* LocalMusicCell.xib */; };
+		95CED1901D4E17AD00EBF530 /* LocalTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CED18F1D4E17AD00EBF530 /* LocalTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +94,16 @@
 		95A9DF401D4C9D3C00A80F8A /* nav_ocean.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_ocean.png; sourceTree = "<group>"; };
 		95A9DF431D4CB47400A80F8A /* bj.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bj.png; sourceTree = "<group>"; };
 		95A9DF451D4CB90300A80F8A /* bj2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bj2.png; sourceTree = "<group>"; };
+		95A9DF471D4CBDAE00A80F8A /* set_bj1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = set_bj1.jpg; sourceTree = "<group>"; };
+		95A9DF4D1D4DA6B100A80F8A /* LocalMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalMusicViewController.h; sourceTree = "<group>"; };
+		95A9DF4E1D4DA6B100A80F8A /* LocalMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalMusicViewController.m; sourceTree = "<group>"; };
+		95A9DF561D4DB38B00A80F8A /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Safe.h"; sourceTree = "<group>"; };
+		95A9DF571D4DB38B00A80F8A /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
+		95CED1881D4E079400EBF530 /* LocalMusicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalMusicCell.h; sourceTree = "<group>"; };
+		95CED1891D4E079400EBF530 /* LocalMusicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalMusicCell.m; sourceTree = "<group>"; };
+		95CED18A1D4E079400EBF530 /* LocalMusicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalMusicCell.xib; sourceTree = "<group>"; };
+		95CED18E1D4E17AD00EBF530 /* LocalTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTools.h; sourceTree = "<group>"; };
+		95CED18F1D4E17AD00EBF530 /* LocalTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				95A9DEFD1D4AD52600A80F8A /* main */,
+				95A9DF491D4DA1E400A80F8A /* localMusic */,
 				95A9DEF81D4ACC1C00A80F8A /* category */,
 				95A9DF241D4C472300A80F8A /* lib */,
 				95A9DF381D4C921300A80F8A /* resources */,
@@ -149,6 +166,8 @@
 			children = (
 				95A9DEF91D4ACC3700A80F8A /* UIView+Extention.h */,
 				95A9DEFA1D4ACC3700A80F8A /* UIView+Extention.m */,
+				95A9DF561D4DB38B00A80F8A /* NSMutableArray+Safe.h */,
+				95A9DF571D4DB38B00A80F8A /* NSMutableArray+Safe.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -156,6 +175,7 @@
 		95A9DEFD1D4AD52600A80F8A /* main */ = {
 			isa = PBXGroup;
 			children = (
+				95CED18D1D4E179500EBF530 /* tools */,
 				95A9DEFE1D4AD52600A80F8A /* controller */,
 				95A9DF031D4AD52600A80F8A /* model */,
 				95A9DF041D4AD52600A80F8A /* view */,
@@ -237,12 +257,58 @@
 		95A9DF381D4C921300A80F8A /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				95A9DF471D4CBDAE00A80F8A /* set_bj1.jpg */,
 				95A9DF451D4CB90300A80F8A /* bj2.png */,
 				95A9DF431D4CB47400A80F8A /* bj.png */,
 				95A9DF3F1D4C9D3C00A80F8A /* main_ocean.png */,
 				95A9DF401D4C9D3C00A80F8A /* nav_ocean.png */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		95A9DF491D4DA1E400A80F8A /* localMusic */ = {
+			isa = PBXGroup;
+			children = (
+				95A9DF4A1D4DA1E400A80F8A /* controller */,
+				95A9DF4B1D4DA1E400A80F8A /* model */,
+				95A9DF4C1D4DA1E400A80F8A /* views */,
+			);
+			path = localMusic;
+			sourceTree = "<group>";
+		};
+		95A9DF4A1D4DA1E400A80F8A /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				95A9DF4D1D4DA6B100A80F8A /* LocalMusicViewController.h */,
+				95A9DF4E1D4DA6B100A80F8A /* LocalMusicViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		95A9DF4B1D4DA1E400A80F8A /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		95A9DF4C1D4DA1E400A80F8A /* views */ = {
+			isa = PBXGroup;
+			children = (
+				95CED1881D4E079400EBF530 /* LocalMusicCell.h */,
+				95CED1891D4E079400EBF530 /* LocalMusicCell.m */,
+				95CED18A1D4E079400EBF530 /* LocalMusicCell.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		95CED18D1D4E179500EBF530 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				95CED18E1D4E17AD00EBF530 /* LocalTools.h */,
+				95CED18F1D4E17AD00EBF530 /* LocalTools.m */,
+			);
+			path = tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,10 +369,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				95A9DF461D4CB90300A80F8A /* bj2.png in Resources */,
+				95CED18C1D4E079400EBF530 /* LocalMusicCell.xib in Resources */,
 				95A9DF421D4C9D3C00A80F8A /* nav_ocean.png in Resources */,
 				95A9DEEB1D4AC79B00A80F8A /* LaunchScreen.storyboard in Resources */,
 				95A9DF441D4CB47400A80F8A /* bj.png in Resources */,
 				95A9DF411D4C9D3C00A80F8A /* main_ocean.png in Resources */,
+				95A9DF481D4CBDAE00A80F8A /* set_bj1.jpg in Resources */,
 				95A9DEE81D4AC79B00A80F8A /* Assets.xcassets in Resources */,
 				95A9DF231D4C301300A80F8A /* TabBarView.xib in Resources */,
 				95A9DEE61D4AC79B00A80F8A /* Main.storyboard in Resources */,
@@ -326,6 +394,8 @@
 				95A9DF371D4C8D1C00A80F8A /* CoustomButtom.m in Sources */,
 				95A9DF1B1D4C2B9F00A80F8A /* NavgationBarView.m in Sources */,
 				95A9DF121D4C1C8700A80F8A /* TabBarViewController.m in Sources */,
+				95CED18B1D4E079400EBF530 /* LocalMusicCell.m in Sources */,
+				95A9DF581D4DB38B00A80F8A /* NSMutableArray+Safe.m in Sources */,
 				95A9DF171D4C1F6500A80F8A /* TitleScrollHelper.m in Sources */,
 				95A9DF1E1D4C2C8400A80F8A /* BaseViewController.m in Sources */,
 				95A9DF2E1D4C479200A80F8A /* SKPresent.m in Sources */,
@@ -337,6 +407,8 @@
 				95A9DF051D4AD52600A80F8A /* MainViewController.m in Sources */,
 				95A9DF341D4C858400A80F8A /* mainHeaderView.m in Sources */,
 				95A9DEDD1D4AC79B00A80F8A /* main.m in Sources */,
+				95CED1901D4E17AD00EBF530 /* LocalTools.m in Sources */,
+				95A9DF4F1D4DA6B200A80F8A /* LocalMusicViewController.m in Sources */,
 				95A9DF091D4BABFC00A80F8A /* LinsenViewController.m in Sources */,
 				95A9DF2D1D4C479200A80F8A /* SKAnimatedTransitioning.m in Sources */,
 				95A9DF061D4AD52600A80F8A /* SettingViewController.m in Sources */,
@@ -449,6 +521,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CLKuGou/PrefixHeader.pch";
 				INFOPLIST_FILE = CLKuGou/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -461,6 +534,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CLKuGou/PrefixHeader.pch";
 				INFOPLIST_FILE = CLKuGou/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -16,7 +16,7 @@
     
     [self.containerView addSubview:self.presentingViewController.view];
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
         self.presentingViewController.view.x = APPW-50;
         self.presentingViewController.view.y = 100;
         self.presentingViewController.view.height = APPH-200;

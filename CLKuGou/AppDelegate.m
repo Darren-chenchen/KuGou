@@ -18,6 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    application.statusBarStyle = UIStatusBarStyleLightContent;
+    
     TabBarViewController *tabbarVC = [[TabBarViewController alloc] init];
     self.window.rootViewController = tabbarVC;
     return YES;

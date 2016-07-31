@@ -12,6 +12,8 @@
 #import "UIView+Extention.h"
 #import "TitleScrollHelper.h"
 #import "TitleScrollView.h"
+#import "NSMutableArray+Safe.h"
+#import "LocalTools.h"
 
 #define APPW [UIScreen mainScreen].bounds.size.width
 #define APPH [UIScreen mainScreen].bounds.size.height
@@ -21,7 +23,7 @@
 #define NavColor        [UIColor colorWithRed:51/255. green:124/255. blue:200/255. alpha:1]
 #define NavItemFont [UIFont boldSystemFontOfSize:14]
 
-#define TabBarHeight 50
+#define TabBarHeight 60
 #define NavHeight 64
 
 
@@ -34,6 +36,10 @@
 [View.layer setMasksToBounds:YES];\
 [View.layer setBorderWidth:(width)];\
 [View.layer setBorderColor:[color CGColor]];
+
+
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
 
 #ifdef DEBUG
 #define NSLog(...) NSLog(__VA_ARGS__)

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^clickLocalMusicBlock)();
+
 @interface mainHeaderView : UIView
+
+@property (nonatomic,copy) clickLocalMusicBlock localMusic;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "mainHeaderView.h"
 #import "CoustomButtom.h"
+#import <MediaPlayer/MediaPlayer.h>
+
 
 @interface mainHeaderView()
 
@@ -26,7 +28,6 @@
         // 最底层
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, APPW, 170)];
         self.imageView.userInteractionEnabled = YES;
-//        self.imageView.image = [UIImage imageNamed:@"bj2"];
         [self addSubview:self.imageView];
         
         //最上面
@@ -65,12 +66,19 @@
     lable.textColor = [UIColor whiteColor];
     [self addSubview:lable];
     
+    MPMediaQuery *everyMusic = [[MPMediaQuery alloc] init];
+    NSArray *musicArr = [everyMusic items];
     UILabel *lable2 = [[UILabel alloc] initWithFrame:CGRectMake(APPW-130, phoneimage.y, 100, 25)];
-    lable2.text = @"50首";
+    lable2.text = [NSString stringWithFormat:@"%ld首",musicArr.count];
     lable2.font = [UIFont systemFontOfSize:12];
     lable2.textColor = [UIColor whiteColor];
     lable2.textAlignment = NSTextAlignmentRight;
     [self addSubview:lable2];
+    lable2.userInteractionEnabled = YES;
+    UILabel *lable3 = [[UILabel alloc] initWithFrame:CGRectMake(0, lable2.y, APPW, lable2.height)];
+    [self addSubview:lable3];
+    lable3.userInteractionEnabled = YES;
+    [lable3 addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickLable2)]];
     
     UIImageView *imageArrow = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(lable2.frame), lable2.y, 25, 25)];
     imageArrow.image = [UIImage imageNamed:@"arrow"];
@@ -99,7 +107,11 @@
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [bView addSubview:btn];
     }
+}
 
+- (void)clickLable2
+{
+    self.localMusic();
 }
 
 @end

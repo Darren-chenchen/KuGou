@@ -17,20 +17,24 @@
 // 在这个方法中实现转场动画 ：modal和dismis都调用这个方法
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    window.backgroundColor = [UIColor colorWithRed:10/255. green:10/255. blue:90/255. alpha:1];
     if (self.presented) {
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
-        toView.x = APPW*0.5;
+        toView.transform = CGAffineTransformMakeScale(0.8, 0.8);
         [UIView animateWithDuration:0.2 animations:^{
-            toView.x = 0;
+            toView.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:YES];
         }];
     } else {
         UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-        fromView.x = 0;
-        [UIView animateWithDuration:0.7 animations:^{
-            fromView.x = APPW*0.5;
+        fromView.transform = CGAffineTransformIdentity;
+        [UIView animateWithDuration:0.2 animations:^{
+            fromView.transform = CGAffineTransformMakeScale(0.8, 0.8);
         } completion:^(BOOL finished) {
+            fromView.transform = CGAffineTransformIdentity;
+
             [transitionContext completeTransition:YES];
         }];
         

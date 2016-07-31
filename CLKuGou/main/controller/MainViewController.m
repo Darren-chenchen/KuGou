@@ -49,8 +49,8 @@
 {
     [self.navBar addSubview:self.titleView];    
     self.leftItem.image = [UIImage imageNamed:@"placeHoder-128"];
-    self.leftItem.layer.cornerRadius = self.leftItem.width*0.5;
-    self.leftItem.layer.masksToBounds = YES;
+    self.leftItem.frame = CGRectMake(20, 34, 20, 20);
+    KGViewsBorder(self.leftItem, self.leftItem.width*0.5, 1, [UIColor grayColor])
     
     self.rightItem.image = [UIImage imageNamed:@"main_search"];
     self.rightItem.frame = CGRectMake(APPW-40, 34, 20, 20);
@@ -116,10 +116,17 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self scrollViewDidEndScrollingAnimation:scrollView];
-    
+
     // 点击按钮
     NSInteger index = scrollView.contentOffset.x / scrollView.width;
     [self titleClick:index];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat alphe = scrollView.contentOffset.x / scrollView.width;
+    
+    self.navBar.backgroundColor = [UIColor colorWithRed:51/255. green:124/255. blue:200/255. alpha:alphe];
 }
 - (SettingViewController *)setVC
 {

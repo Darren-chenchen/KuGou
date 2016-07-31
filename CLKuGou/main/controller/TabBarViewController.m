@@ -12,7 +12,6 @@
 
 @interface TabBarViewController ()
 
-@property (nonatomic,strong) TabBarView *coustomTabBar;
 
 @end
 
@@ -29,7 +28,7 @@
 {
     if (_coustomTabBar == nil) {
         _coustomTabBar = [TabBarView show];
-        _coustomTabBar.frame = CGRectMake(0, 0, APPW, 50);
+        _coustomTabBar.frame = CGRectMake(0, 49-TabBarHeight, APPW, TabBarHeight);
     }
     return _coustomTabBar;
 }
@@ -38,6 +37,11 @@
 {
     [super viewWillAppear:animated];
     
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self.tabBar addSubview:self.coustomTabBar];
+
 }
 @end
