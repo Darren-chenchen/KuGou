@@ -12,6 +12,9 @@
 @property (nonatomic,weak) UITableView *tableView;
 
 @property (nonatomic,strong) UIView *topView;
+
+@property (nonatomic,strong) UIView *bottomView;
+
 @end
 
 @implementation SettingViewController
@@ -25,17 +28,20 @@
     topImage.userInteractionEnabled = YES;
     [self.view addSubview:topImage];
     
-    [self setupTopView];
+    self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, APPW, APPH)];
+    [self.view addSubview:self.bottomView];
+    [self.bottomView addSubview:[self setupTopView]];
+    [self.bottomView addSubview:[self setupBottomView]];
     
     [self setupTableView];
-    
-    [self setupBottomView];
-    
     // 左滑手势
     [self setupLeftGesture];
+    
+    // 给mainVC增加点击手势
+    [self setupMainVCTapGesture];
 }
 
-- (void)setupTopView
+- (UIView *)setupTopView
 {
     self.topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, APPW, 100)];
     [self.view addSubview:self.topView];
@@ -58,21 +64,25 @@
     lineView.backgroundColor = [UIColor whiteColor];
     lineView.alpha = 0.3;
     [self.topView addSubview:lineView];
+    
+    return self.topView;
 }
 
-- (void)setupBottomView
+- (UIView *)setupBottomView
 {
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(10, APPH-110, APPW-70, 0.5)];
+    UIView *foot = [[UIView alloc] initWithFrame:CGRectMake(0, APPH-111, APPW, 110)];
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(10, 1, APPW-70, 0.5)];
     lineView.backgroundColor = [UIColor whiteColor];
     lineView.alpha = 0.3;
-    [self.view addSubview:lineView];
+    [foot addSubview:lineView];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, APPH-80, 80, 30)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 40, 80, 30)];
     [btn setTitle:@"设置" forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:15];
     btn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     [btn setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
-    [self.view addSubview:btn];
+    [foot addSubview:btn];
+    return foot;
 }
 - (void)setupTableView
 {
@@ -83,7 +93,7 @@
     tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"set_bj1.jpg"]];
     tableView.tableFooterView = [UIView new];
     tableView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:tableView];
+    [self.bottomView addSubview:tableView];
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -123,17 +133,59 @@
 - (void)clickPan:(UIPanGestureRecognizer *)pan
 {
     CGPoint point = [pan translationInView:self.view];
-    double deltaX=fabs(point.x);
+    if (point.x>0) {
+        return;
+    }
+    double deltaX= fabs(point.x);
+    CGFloat scare = 1-deltaX/1000.0;
     
-    NSLog(@"%f",deltaX);
+    CGFloat tranX = -fabs(deltaX)/200.0;
+    CGFloat tranY = fabs(deltaX)/1000.0;
 
-//    if (0.1<=deltaX/170.0<1) {
-//        self.view.transform = CGAffineTransformMakeScale(1-deltaX/170.0,1-deltaX/170.0);
-//    }
-//    self.view.transform = CGAffineTransformScale(self.view.transform, deltaX/150.0, deltaX/150.0);
+//    NSLog(@"%f",(1-deltaX/1000.0));
+    NSLog(@"%f",scare);
+    if (0.5<scare<1) {
+        self.bottomView.transform = CGAffineTransformMakeScale(0.5,0.5);
+    } else {
+        self.bottomView.transform = CGAffineTransformScale(self.view.transform, scare, scare);
+        
+        if (((APPW-50)/APPW + tranX)>=0) {
+            self.presentingViewController.view.x =  ((APPW-50)/APPW + tranX)*APPW;
+            self.presentingViewController.view.y =  (100/APPH-tranY)*APPH;
+            self.presentingViewController.view.height = APPH-2*self.presentingViewController.view.y;
+        }
+        
+        if (pan.state == UIGestureRecognizerStateEnded) {
+            if (((APPW-50)/APPW + tranX)<=0.2) {
+                [UIView animateWithDuration:0.1 animations:^{
+                    self.presentingViewController.view.x = 0;
+                    self.presentingViewController.view.y = 0;
+                    self.presentingViewController.view.height = APPH;
+                    self.bottomView.transform = CGAffineTransformMakeScale(1,1);
+                } completion:^(BOOL finished) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [CLNotificationCenter postNotificationName:ChangeMainVCContentEnable object:nil];
+                }];
+            } else {
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.presentingViewController.view.x = APPW-50;
+                    self.presentingViewController.view.y = 100;
+                    self.presentingViewController.view.height = APPH-200;
+                    self.bottomView.transform = CGAffineTransformMakeScale(1,1);
+                }];
+            }
+        }
+    }
+}
 
-//    self.view.transform = CGAffineTransformTranslate(self.view.transform, point.x, point.y);
-//    self.view.transform = CGAffineTransformScale(self.view.transform, [str floatValue], [str floatValue]);
-//    [pan setTranslation:CGPointZero inView:self.view];
+- (void)setupMainVCTapGesture
+{
+    [self.presentingViewController.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickMainVC)]];
+}
+- (void)clickMainVC
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        [CLNotificationCenter postNotificationName:ChangeMainVCContentEnable object:nil];
+    }];
 }
 @end

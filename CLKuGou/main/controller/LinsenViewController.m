@@ -59,7 +59,7 @@
     WS(weakSelf);
     self.headerView.localMusic = ^{
         LocalMusicViewController *localVC = [[LocalMusicViewController alloc] init];
-        [weakSelf.navigationController pushViewController:localVC animated:YES];
+        [weakSelf.navigationController pushViewController:localVC animated:NO];
     };
 }
 #pragma mark - UITableViewDataSource

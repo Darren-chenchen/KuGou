@@ -27,6 +27,7 @@
 - (TabBarView *)coustomTabBar
 {
     if (_coustomTabBar == nil) {
+        
         _coustomTabBar = [TabBarView show];
         _coustomTabBar.frame = CGRectMake(0, 49-TabBarHeight, APPW, TabBarHeight);
     }

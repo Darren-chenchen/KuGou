@@ -14,6 +14,7 @@
 #import "TitleScrollView.h"
 #import "NSMutableArray+Safe.h"
 #import "LocalTools.h"
+#import "CLConst.h"
 
 #define APPW [UIScreen mainScreen].bounds.size.width
 #define APPH [UIScreen mainScreen].bounds.size.height

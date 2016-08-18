@@ -41,6 +41,7 @@
 		95CED18B1D4E079400EBF530 /* LocalMusicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CED1891D4E079400EBF530 /* LocalMusicCell.m */; };
 		95CED18C1D4E079400EBF530 /* LocalMusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95CED18A1D4E079400EBF530 /* LocalMusicCell.xib */; };
 		95CED1901D4E17AD00EBF530 /* LocalTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CED18F1D4E17AD00EBF530 /* LocalTools.m */; };
+		95CED1941D5578A900EBF530 /* CLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CED1931D5578A900EBF530 /* CLConst.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,8 @@
 		95CED18A1D4E079400EBF530 /* LocalMusicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalMusicCell.xib; sourceTree = "<group>"; };
 		95CED18E1D4E17AD00EBF530 /* LocalTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTools.h; sourceTree = "<group>"; };
 		95CED18F1D4E17AD00EBF530 /* LocalTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTools.m; sourceTree = "<group>"; };
+		95CED1921D5578A900EBF530 /* CLConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLConst.h; sourceTree = "<group>"; };
+		95CED1931D5578A900EBF530 /* CLConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLConst.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 		95A9DEDA1D4AC79B00A80F8A /* CLKuGou */ = {
 			isa = PBXGroup;
 			children = (
+				95CED1911D5577FC00EBF530 /* confige */,
 				95A9DEFD1D4AD52600A80F8A /* main */,
 				95A9DF491D4DA1E400A80F8A /* localMusic */,
 				95A9DEF81D4ACC1C00A80F8A /* category */,
@@ -311,6 +315,15 @@
 			path = tools;
 			sourceTree = "<group>";
 		};
+		95CED1911D5577FC00EBF530 /* confige */ = {
+			isa = PBXGroup;
+			children = (
+				95CED1921D5578A900EBF530 /* CLConst.h */,
+				95CED1931D5578A900EBF530 /* CLConst.m */,
+			);
+			path = confige;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -394,6 +407,7 @@
 				95A9DF371D4C8D1C00A80F8A /* CoustomButtom.m in Sources */,
 				95A9DF1B1D4C2B9F00A80F8A /* NavgationBarView.m in Sources */,
 				95A9DF121D4C1C8700A80F8A /* TabBarViewController.m in Sources */,
+				95CED1941D5578A900EBF530 /* CLConst.m in Sources */,
 				95CED18B1D4E079400EBF530 /* LocalMusicCell.m in Sources */,
 				95A9DF581D4DB38B00A80F8A /* NSMutableArray+Safe.m in Sources */,
 				95A9DF171D4C1F6500A80F8A /* TitleScrollHelper.m in Sources */,

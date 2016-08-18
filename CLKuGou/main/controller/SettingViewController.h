@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MainViewController.h"
 @interface SettingViewController : UIViewController
 
+@property (nonatomic,strong) MainViewController *mainVC;
 @end
