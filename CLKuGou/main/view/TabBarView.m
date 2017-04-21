@@ -30,10 +30,6 @@
         
         _avPlayer.enableRate = YES;// 允许设置速率
         _avPlayer.rate = 1;  // 设置速率
-        // self.avPlayer.duration  获得音频的时长
-        //    self.avPlayer.currentTime = 100; // 从100秒的位置开始播放
-        //    self.avPlayer.numberOfLoops = 2; // 循环2次
-        //    self.avPlayer.numberOfChannels // 声道
         _avPlayer.delegate = self;
     }
     return _avPlayer;
